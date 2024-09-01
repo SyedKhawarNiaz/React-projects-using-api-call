@@ -1,0 +1,7 @@
+.cardd {
+  /* border: 1px solid red; */
+  transition: all 0.4s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
