@@ -3,7 +3,9 @@ import { updatestore } from "../../store/features/productslice";
 import { useDispatch } from "react-redux";
 function ItemList({ img, title, price, id }) {
   const dispatch = useDispatch();
-
+  const handleid = () => {
+    dispatch(updatestore(id));
+  };
   return (
     <>
       <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -28,7 +30,7 @@ function ItemList({ img, title, price, id }) {
             <div className="flex divide-x text-sm">
               <button
                 type="button"
-                onClick={() => dispatch(updatestore(id))}
+                onClick={handleid}
                 className="flex items-center space-x-2 px-2 py-1 pl-0"
               >
                 <svg

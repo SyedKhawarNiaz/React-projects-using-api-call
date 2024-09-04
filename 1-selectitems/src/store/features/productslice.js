@@ -19,18 +19,36 @@ const Productslice = createSlice({
   initialState,
   reducers: {
     storeitems(state, action) {
-      state.data.push(action.payload);
-      let total = state.data.reduce((acc, curr) => {
-        return acc + curr.Price;
-      }, 0);
-      state.total = total;
+      let item = action.payload;
+      const isitemExit = state.data.find((i) => i.Id === item.Id);
+      if (isitemExit) {
+        state.data.forEach((i) => {
+          if (i.Id === item.Id) {
+            i.quantity += 1;
+            i.Price += i.Price;
+            state.total = i.Price;
+          }
+        });
+      } else {
+        state.data.push(item);
+        let total = state.data.reduce((acc, curr) => {
+          return acc + curr.Price;
+        }, 0);
+        state.total = total;
+      }
+      // state.data.push(action.payload);
+      // let total = state.data.reduce((acc, curr) => {
+      //   return acc + curr.Price;
+      // }, 0);
+      // state.total = total;
     },
+
     updatestore(state, action) {
       state.data = state.data.filter((id) => id.Id !== action.payload);
       let total = state.data.reduce((acc, curr) => {
         return acc + curr.Price;
       }, 0);
-      state.total = total;  
+      state.total = total;
     },
   },
   extraReducers: (builder) => {

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { storeitems } from "../store/features/productslice";
+
 function Card({ imgsrc, title, price, id }) {
   const dispatch = useDispatch();
   const handlecart = (e) => {
@@ -12,6 +13,7 @@ function Card({ imgsrc, title, price, id }) {
         Title: title,
         Img: imgsrc,
         Price: price,
+        quantity: 1,
       })
     );
     toast.success("Item added to cart");
