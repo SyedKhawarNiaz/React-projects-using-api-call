@@ -1,7 +1,14 @@
 import React from "react";
 import "./App.css";
+import { Outlet } from "react-router-dom";
+import { Header } from "./components/index";
 function App() {
-  return <div className="text-center">App</div>;
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
