@@ -15,7 +15,7 @@ function CoinCard({ name, id, currencysymbol = "Є", price, img, symbol }) {
             </p>
           </div>
         </div>
-      </Link>
+      </Link> 
     </div>
   );
 }

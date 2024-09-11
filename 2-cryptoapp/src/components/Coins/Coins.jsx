@@ -27,7 +27,7 @@ function Coins() {
   }, [currency, page]);
   return (
     <div>
-      <div className="mt-10 ml-20">
+      <div className="mt-8 ml-[1vw]">
         <form
           onChange={(e) => setcurrency(e.target.value)}
           className="flex gap-1"
